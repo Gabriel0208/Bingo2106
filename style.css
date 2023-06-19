@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #fce7e7;
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  #player-info {
+    width: 300px;
+    margin-right: 20px;
+  }
+  
+  .card {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .card th {
+    background-color: #961c1c;
+    padding: 5px;
+  }
+  
+  .card td {
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .card td.number {
+    background-color: #fff;
+  }
+  
+  .card td.drawn {
+    background-color: #ffb3b3;
+  }
+  
+  #numbers-table {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 200px;
+    border-collapse: collapse;
+  }
+  
+  #numbers-table th {
+    background-color: #f1f1f1;
+    padding: 5px;
+  }
+  
+  #numbers-table td {
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .buttons-container {
+    margin-top: 20px;
+  }
+  
+  .buttons-container button {
+    margin-right: 10px;
+  }
+  
+  table {
+    table-layout: fixed;
+  }
+  
+  table td {
+    white-space: nowrap;
+  }
+  
+
+.card td.drawn {
+    background-color: #b3d1ff;
+  }
+  
+  #numbers-table td.drawn {
+    background-color: #b3d1ff;
+  }
+  
