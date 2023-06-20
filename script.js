@@ -12,58 +12,64 @@ function createCard() {
 }
 
 function generateCard(playerName) {
-  const card = [];
-
-  while (card.length < 15) {
-    const randomNumber = Math.floor(Math.random() * 90) + 1;
-
-    if (!card.includes(randomNumber)) {
-      card.push(randomNumber);
-    }
-  }
-
-  return {
-    playerName: playerName,
-    numbers: card,
-    isWinner: false
-  };
-}
-
-function renderCards() {
-  const playerCardsContainer = document.getElementById("player-cards");
-  playerCardsContainer.innerHTML = "";
-
-  playerCards.forEach(card => {
-    const table = document.createElement("table");
-    table.className = "card";
-    table.innerHTML = `
-      <caption>${card.playerName}</caption>
-      <tr>
-        <th>B</th>
-        <th>I</th>
-        <th>N</th>
-        <th>G</th>
-        <th>O</th>
-      </tr>
-    `;
-
-    for (let row = 0; row < 3; row++) {
-      const tableRow = document.createElement("tr");
-
-      for (let col = 0; col < 5; col++) {
-        const tableCell = document.createElement("td");
-        const number = card.numbers[row * 5 + col];
-        tableCell.textContent = number;
-        tableCell.className = "number";
-        tableRow.appendChild(tableCell);
+    const card = [];
+  
+    while (card.length < 25) {
+      const randomNumber = Math.floor(Math.random() * 75) + 1;
+  
+      if (!card.includes(randomNumber)) {
+        card.push(randomNumber);
       }
-
-      table.appendChild(tableRow);
     }
+  
+    return {
+      playerName: playerName,
+      numbers: card,
+      isWinner: false
+    };
+  }
+  
+      
+  
 
-    playerCardsContainer.appendChild(table);
-  });
-}
+  function renderCards() {
+    const playerCardsContainer = document.getElementById("player-cards");
+    playerCardsContainer.innerHTML = "";
+  
+    playerCards.forEach(card => {
+      const table = document.createElement("table");
+      table.className = "card";
+      table.innerHTML = `
+        <caption>${card.playerName}</caption>
+        <tr>
+          <th>B</th>
+          <th>I</th>
+          <th>N</th>
+          <th>G</th>
+          <th>O</th>
+        </tr>
+      `;
+  
+      for (let row = 0; row < 5; row++) { // Atualizado para 5 filas
+        const tableRow = document.createElement("tr");
+  
+        for (let col = 0; col < 5; col++) { // Atualizado para 5 colunas
+          const tableCell = document.createElement("td");
+          const index = row * 5 + col;
+          const number = card.numbers[index];
+          tableCell.textContent = number;
+          tableCell.className = "number";
+          tableRow.appendChild(tableCell);
+        }
+  
+        table.appendChild(tableRow);
+      }
+  
+      playerCardsContainer.appendChild(table);
+    });
+  }
+  
+
 
 function startGame() {
   const drawNumberButton = document.getElementById("draw-number-button");
@@ -78,7 +84,7 @@ function startGame() {
   numbersTableBody.innerHTML = "";
 
   let numberRow;
-  for (let i = 1; i <= 90; i++) {
+  for (let i = 1; i <= 75; i++) {
     if (i % 10 === 1) {
       numberRow = document.createElement("tr");
       numbersTableBody.appendChild(numberRow);
@@ -97,7 +103,7 @@ function drawNumber() {
   let drawnNumber;
 
   do {
-    drawnNumber = Math.floor(Math.random() * 90) + 1;
+    drawnNumber = Math.floor(Math.random() * 75) + 1;
   } while (drawnNumbers.includes(drawnNumber));
 
   drawnNumbers.push(drawnNumber);
